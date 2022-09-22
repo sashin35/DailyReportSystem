@@ -1,0 +1,32 @@
+{%  extends 'nippo/main.html' %}
+
+{% block content %}
+<br>
+<div class="container text-center">
+		<div class="col" id="total-orders">
+				  <h5>List of Daily Report</h5>
+			  <div class="card-body">
+				<!-- <a class="btn btn-primary  btn-sm btn-block" href="">Create a Daily Report</a> -->
+				<table class="table table-sm">
+					<tr>
+						<!-- <th>SN</th> -->
+						<th>Daily Report</th>
+						<th>Comment</th>
+						<th>Update</th>
+					</tr>
+                    {% for report in list %}
+                        <tr>
+                            <td>
+                                {{report.topic}}
+                            </td>
+                            <td><a href="" class="btn btn-success">Add</a></td>
+                            <td><a href="{% url 'edit_report' report.id %}" class="btn btn-secondary">Edit</a></td>
+                        </tr>
+                    {% endfor %}
+				</table>
+			</div>
+		</div>
+</div>
+
+{% endblock %}
+

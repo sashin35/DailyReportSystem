@@ -1,0 +1,12 @@
+version: "3.7"
+
+x-service-volumes: &service-volumes 
+  - ./:/app/:rw,cached
+
+services:
+  website:
+    image: sashin35/nipposystem:latest
+    command: python manage.py runserver 0.0.0.0:4444
+    volumes: *service-volumes
+    ports:
+      - "4444:4444"
